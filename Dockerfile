@@ -9,7 +9,7 @@ COPY requirements requirements
 #RUN venv/bin/pip install -r requirements/common.txt
 RUN pip install -r requirements/common.txt
 
-COPY tracing-agent.py tracing-flask.py boot.sh ./
+COPY tracing-agent.py tracing-flask.py boot.sh boot-flask.sh ./
 
 # run-time configuration
 EXPOSE 5000

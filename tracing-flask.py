@@ -15,7 +15,7 @@ from opentelemetry.instrumentation.requests import RequestsInstrumentor
 
 trace.set_tracer_provider(
     TracerProvider(
-        resource=Resource.create({SERVICE_NAME: "my-helloworld-service"})
+        resource=Resource.create({SERVICE_NAME: "otel-flask-service"})
     )
 )
 
