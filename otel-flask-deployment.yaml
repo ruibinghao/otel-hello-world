@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.dev.yml
+    kompose.version: 1.22.0 (955b78124)
+    sidecar.jaegertracing.io/inject: "true"
+  creationTimestamp: null
+  labels:
+    io.kompose.service: otel-flask
+  name: otel-flask
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: otel-flask
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.dev.yml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: otel-flask
+    spec:
+      containers:
+        - image: docker.io/haoruibing/otel-flask
+          name: otel-flask
+          ports:
+           - containerPort: 5000 
+      restartPolicy: Always
+status: {}
