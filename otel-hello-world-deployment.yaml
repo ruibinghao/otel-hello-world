@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.dev.yml
+    kompose.version: 1.22.0 (955b78124)
+    sidecar.jaegertracing.io/inject: "true"
+  creationTimestamp: null
+  labels:
+    io.kompose.service: otel-hello-world
+  name: otel-hello-world
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: otel-hello-world
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.dev.yml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: otel-hello-world
+    spec:
+      containers:
+        - image: docker.io/haoruibing/otel-hello-world
+          name: otel-hello-world
+      restartPolicy: Always
+status: {}
