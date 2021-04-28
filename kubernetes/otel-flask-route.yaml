@@ -5,7 +5,7 @@ metadata:
     io.kompose.service: otel-flask
   name: otel-flask
 spec:
-  host: otel-flask.apps.vivaocp.comcast.net
+  host: otel-flask-argocd-python-flask.apps.vivaocp.comcast.net
   path: "/"
   port:
     targetPort: '5000'
@@ -14,11 +14,3 @@ spec:
     name: otel-flask
     weight: 100
   wildcardPolicy: None
-status:
-  ingress:
-    - conditions:
-        - status: 'True'
-          type: Admitted
-      host: otel-flask.apps.vivaocp.comcast.net
-      routerName: router
-      wildcardPolicy: None
