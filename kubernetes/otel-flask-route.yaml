@@ -14,3 +14,11 @@ spec:
     name: otel-flask
     weight: 100
   wildcardPolicy: None
+status:
+  ingress:
+    - conditions:
+        - status: 'True'
+          type: Admitted
+      host: otel-flask.apps.vivaocp.comcast.net
+      routerName: router
+      wildcardPolicy: None
