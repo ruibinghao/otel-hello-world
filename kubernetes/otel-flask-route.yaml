@@ -3,9 +3,9 @@ kind: Route
 metadata:
   labels:
     io.kompose.service: otel-flask
-  name: otel-flak
+  name: otel-flask
 spec:
-  host: otel-flask.app.vivaocp.ula.comcast.net
+  host: otel-flask.apps.vivaocp.comcast.net
   port:
     targetPort: '5000'
   to:
@@ -13,11 +13,3 @@ spec:
     name: otel-flask
     weight: 100
   wildcardPolicy: None
-status:
-  ingress:
-    - conditions:
-        - status: 'True'
-          type: Admitted
-      host: otel-flask.app.vivaocp.ula.comcast.net
-      routerName: router
-      wildcardPolicy: None
