@@ -6,6 +6,7 @@ metadata:
   name: otel-flask
 spec:
   host: otel-flask.apps.vivaocp.comcast.net
+  path: "/"
   port:
     targetPort: '5000'
   to:
