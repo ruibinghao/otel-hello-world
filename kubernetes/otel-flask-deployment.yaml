@@ -10,7 +10,7 @@ metadata:
     io.kompose.service: otel-flask
   name: otel-flask
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       io.kompose.service: otel-flask
