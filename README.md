@@ -9,6 +9,15 @@ This is a demo app that is borrowed from [OpenTelemetry Python Get Started](http
 
 This demo app is instrumented with OpenTelemetry API/SDK. Also both the Flask framework and HTTP request library are instrumented. So all the HTTP request/response the demo app receives/sends through Flask or HTTP request lib will be automatically captured and sent to the defined Otel agent(this demo app assumes the Otel agent is installed on localhost and listening on port 6831 for jaeger thrift formatted traces). The demo app also inserts another span inbetween the received HTTP request from the clients and the new HTTP request it sends to the external website with the name 'example-request'.
 
+## Build a Container Image for the Python Flask App
+
+You will need to have docker installed on your laptop or VM to build a container image for this demo app. First 'git clone' this repo and then change the directory to where the 'Dockerfile; is located.
+Then use the following command to build and publish the contaier image to 'docker.io'. You can use whatever container registry you like, if you prefer to use a different container registry, please modify the deployment YAML file under kubernetes as well to use the right container image URL.
+
+```
+[centos@centos8 otel-hello-world]$ docker build -t docker.io/haoruibing/otel-flask .
+[centos@centos8 otel-hello-world]$ docker push docker.io/haoruibing/otel-flask
+```
 ## Auto injection of OpenTelemetry Agent as a Sidecar container
 
 This demo app assumes an OpenTelemetry-based Jaeger Collector instance has been deployed in the namespace where the demo app will be deployed. A sample YAML file to deploy an all-in-one configuration Jaeger is provided in the 'jaeger-all-in-one.yaml' under 'kubernetes' folder. 
