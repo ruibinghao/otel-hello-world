@@ -21,3 +21,27 @@ The traces will be sent from the demo app -> local jaeger otel agent -> jaeger o
 ![OpenTelemetry Based Distributed Tracing with Jaeger](doc/Otel-jaeger.jpeg)
 ## GitOps Deployment
 
+The deployment of this demo app is automated using ArgoCD into the Openshift container platform. Below is the ArgoCD application YAML file under the 'argo' folder. You can run 'oc apply -f argocd-python-flask.yaml' to onboard this application on to ArgoCD.
+
+```
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-python-flask
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: argocd-python-flask
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    directory:
+      recurse: true
+    path: kubernetes
+    repoURL: https://github.com/ruibinghao/otel-hello-world.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+```
