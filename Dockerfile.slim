@@ -4,17 +4,21 @@ RUN apt-get update \
 && apt-get install gcc -y \
 && apt-get clean
 
+# This is the command to add an user if the base image is alpine
 #RUN adduser -D flasky
-#USER flasky
+# This is the command to add an user if the base image is ubuntu
+RUN adduser --disabled-password --gecos "" flasky
+USER flasky
+WORKDIR /home/flasky
 
 
 COPY requirements requirements
-#UN python -m venv venv
-#RUN venv/bin/pip install -r requirements/common.txt
-RUN pip install -r requirements/common.txt
+RUN python -m venv venv
+RUN venv/bin/pip install -r requirements/common.txt
+#RUN pip install -r requirements/common.txt
 
-COPY tracing-agent.py tracing-flask.py boot.sh boot-flask.sh ./
+COPY tracing-agent.py tracing-flask.py boot.sh boot-flask.sh boot-flask-slim.sh ./
 
 # run-time configuration
 EXPOSE 5000
-ENTRYPOINT ["./boot-flask.sh"]
+ENTRYPOINT ["./boot-flask-slim.sh"]
