@@ -6,6 +6,6 @@ A demo of GitOPs deployment automation and Opentelemetry-based observability on 
 
 ## Distributed Tracing using Open Telemetry-based Jaeger
 
-[OpenTelemetry Based Distributed Tracing with Jaeger](doc/Otel-jaeger.jpeg)
+![OpenTelemetry Based Distributed Tracing with Jaeger](doc/Otel-jaeger.jpeg)
 ## GitOps Deployment
 
