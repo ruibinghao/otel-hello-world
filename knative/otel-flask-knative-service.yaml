@@ -1,0 +1,12 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: otel-flask
+  namespace: knative-demo
+spec:
+  template:
+    spec:
+      containers:
+        - image: docker.io/haoruibing/otel-flask:latest
+          ports:
+            - containerPort: 5000
