@@ -1,6 +1,6 @@
 # Python Flask Hello World
 
-A demo of GitOPs deployment automation and Opentelemetry-based observability on Openshift containter platform using a Python Flask app.
+A demo of GitOPs deployment automation and Opentelemetry-based observability on Openshift containter platform using a Python Flask app. WIP.
 
 ## Application Architecture
 ![Instructed Python Flask App](doc/Python-Flask-Otel.jpeg)
