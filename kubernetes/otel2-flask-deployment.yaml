@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.dev.yml
+    kompose.version: 1.22.0 (955b78124)
+    sidecar.opentelemetry.io/inject: "true"
+  creationTimestamp: null
+  labels:
+    io.kompose.service: otel2-flask
+  name: otel2-flask
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      io.kompose.service: otel2-flask
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.dev.yml
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: otel2-flask
+    spec:
+      containers:
+        - image: docker.io/haoruibing/otel-flask
+          name: otel2-flask
+          ports:
+           - containerPort: 5000 
+      restartPolicy: Always
+status: {}
