@@ -13,7 +13,7 @@ spec:
 
     exporters:
       jaeger/2:
-        endpoint: dns:///jaeger-all-in-one-inmemory-collector-headless.jaeger-system.svc:14250
+        endpoint: simplest-collector-headless.opentelemetry-operator-system.svc:14250
         insecure: true
 
     service:
