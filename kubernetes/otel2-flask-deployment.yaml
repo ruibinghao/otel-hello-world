@@ -19,6 +19,7 @@ spec:
       annotations:
         kompose.cmd: kompose convert -f docker-compose.dev.yml
         kompose.version: 1.22.0 (955b78124)
+        sidecar.opentelemetry.io/inject: "true"
       creationTimestamp: null
       labels:
         io.kompose.service: otel2-flask
@@ -26,9 +27,6 @@ spec:
       containers:
         - image: docker.io/haoruibing/otel-flask
           name: otel2-flask
-          metadata:
-            annotations:
-              sidecar.opentelemetry.io/inject: "true"
           ports:
            - containerPort: 5000 
       restartPolicy: Always
