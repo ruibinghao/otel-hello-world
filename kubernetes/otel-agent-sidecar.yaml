@@ -12,11 +12,13 @@ spec:
     processors:
 
     exporters:
-      logging:
+      jaeger/2:
+        endpoint: dns:///jaeger-all-in-one-inmemory-collector-headless.jaeger-system.svc:14250
+        insecure: true
 
     service:
       pipelines:
         traces:
           receivers: [jaeger]
           processors: []
-          exporters: [logging]
+          exporters: [jaeger/2]
