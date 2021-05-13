@@ -5,7 +5,8 @@ metadata:
 spec:
   strategy: allInOne
   allInOne:
-    options: {}
+    options: 
+      log-level: debug
     resources: {}
     collector:
       options:

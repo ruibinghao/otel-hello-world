@@ -5,7 +5,11 @@ metadata:
   namespace: knative-demo
 spec:
   template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/targetUtilizationPercentage: "80"
     spec:
+      containerConcurrency: 10
       containers:
         - image: docker.io/haoruibing/otel-flask:latest
           ports:
