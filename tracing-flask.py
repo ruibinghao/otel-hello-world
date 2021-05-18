@@ -1,4 +1,5 @@
 # flask_example.py
+import os
 import flask
 import requests
 from opentelemetry import trace
@@ -13,15 +14,19 @@ from opentelemetry.sdk.trace.export import (
 from opentelemetry.instrumentation.flask import FlaskInstrumentor
 from opentelemetry.instrumentation.requests import RequestsInstrumentor
 
+service_name = os.environ.get('SERVICE_NAME', 'otel-flask-service')
+agent_host = os.environ.get('AGENT_HOST', 'localhost')
+agent_port = os.environ.get('AGENT_PORT', 6831)
+
 trace.set_tracer_provider(
     TracerProvider(
-        resource=Resource.create({SERVICE_NAME: "otel-flask-service"})
+        resource=Resource.create({SERVICE_NAME: service_name})
     )
 )
 
 jaeger_exporter = JaegerExporter(
-    agent_host_name="localhost",
-    agent_port=6831,
+    agent_host_name = agent_host,
+    agent_port = agent_port,
 )
 
 trace.get_tracer_provider().add_span_processor(
