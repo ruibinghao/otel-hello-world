@@ -33,7 +33,7 @@ spec:
            - name: AGENT_HOST
              value: "localhost"
            - name: AGENT_PORT
-             value: "6831"
+             value: 6831
           ports:
            - containerPort: 5000 
       restartPolicy: Always
