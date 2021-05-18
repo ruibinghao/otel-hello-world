@@ -16,7 +16,7 @@ from opentelemetry.instrumentation.requests import RequestsInstrumentor
 
 service_name = os.environ.get('SERVICE_NAME', 'otel-flask-service')
 agent_host = os.environ.get('AGENT_HOST', 'localhost')
-agent_port = os.environ.get('AGENT_PORT', 6831)
+agent_port = os.environ.get('AGENT_PORT', '6831')
 
 trace.set_tracer_provider(
     TracerProvider(
