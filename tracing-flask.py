@@ -26,7 +26,7 @@ trace.set_tracer_provider(
 
 jaeger_exporter = JaegerExporter(
     agent_host_name = agent_host,
-    agent_port = agent_port,
+    agent_port = int(agent_port),
 )
 
 trace.get_tracer_provider().add_span_processor(
