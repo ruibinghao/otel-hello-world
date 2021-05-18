@@ -29,7 +29,7 @@ spec:
           name: otel-flask
           env:
            - name: SERVICE_NAME
-             value: "otel-flask-env1"
+             value: "otel-flask-jaegeragent"
            - name: AGENT_HOST
              value: "localhost"
            - name: AGENT_PORT

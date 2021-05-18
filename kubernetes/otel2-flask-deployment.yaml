@@ -27,6 +27,13 @@ spec:
       containers:
         - image: docker.io/haoruibing/otel-flask
           name: otel2-flask
+          env:
+           - name: SERVICE_NAME
+             value: "otel-flask-otel-agent"
+           - name: AGENT_HOST
+             value: "localhost"
+           - name: AGENT_PORT
+             value: "6831"
           ports:
            - containerPort: 5000 
       restartPolicy: Always
