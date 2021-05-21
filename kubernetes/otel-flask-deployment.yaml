@@ -35,9 +35,9 @@ spec:
            - name: AGENT_PORT
              value: "6831"
           ports:
-           - name: "5000"
+           - name: app-port
              containerPort: 5000
-           - name: "9000"
+           - name: metrics-port
              containerPort: 9000 
       restartPolicy: Always
 status: {}
