@@ -35,7 +35,9 @@ spec:
            - name: AGENT_PORT
              value: "6831"
           ports:
-           - containerPort: 5000
-           - containerPort: 9000 
+           - name: "5000"
+             containerPort: 5000
+           - name: "9000"
+             containerPort: 9000 
       restartPolicy: Always
 status: {}
