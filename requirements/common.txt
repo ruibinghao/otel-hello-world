@@ -5,4 +5,5 @@ opentelemetry-exporter-jaeger==1.1.0
 opentelemetry-sdk==1.1.0
 opentelemetry-instrumentation-flask==0.20b0
 opentelemetry-instrumentation-requests==0.20b0
+prometheus-client
 

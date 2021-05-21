@@ -11,5 +11,7 @@ RUN pip install -r requirements/common.txt
 COPY tracing-agent.py tracing-flask.py boot.sh boot-flask.sh boot-flask-slim.sh ./
 
 # run-time configuration
+ENV FLASK_DEBUG=False
 EXPOSE 5000
+EXPOSE 9000
 ENTRYPOINT ["./boot-flask.sh"]
