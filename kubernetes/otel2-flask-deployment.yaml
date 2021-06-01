@@ -29,12 +29,15 @@ spec:
           name: otel2-flask
           env:
            - name: SERVICE_NAME
-             value: "otel-flask-otel-agent"
+             value: "otel2-flask-otel-agent"
            - name: AGENT_HOST
              value: "localhost"
            - name: AGENT_PORT
              value: "6831"
           ports:
-           - containerPort: 5000 
+           - name: app-port
+             containerPort: 5000 
+           - name: metrics-port
+             containerPort: 9000 
       restartPolicy: Always
 status: {}
